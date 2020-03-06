@@ -1,0 +1,85 @@
+<table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="firstName">
+        <th mat-header-cell *matHeaderCellDef>First Name</th>
+        <td mat-cell *matCellDef="let element">{{element.firstName}}</td>
+    </ng-container>
+    <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef>Last Name</th>
+        <td mat-cell *matCellDef="let element">{{element.lastName}}</td>
+    </ng-container>
+    <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef>First Name</th>
+        <td mat-cell *matCellDef="let element">{{element.email}}</td>
+    </ng-container>
+    <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef>First Name</th>
+        <td mat-cell *matCellDef="let element">{{element.phone}}</td>
+    </ng-container>
+    <ng-container matColumnDef="language">
+        <th mat-header-cell *matHeaderCellDef>First Name</th>
+        <td mat-cell *matCellDef="let element">{{element.language}}</td>
+    </ng-container>
+    <ng-container matColumnDef="country">
+        <th mat-header-cell *matHeaderCellDef>First Name</th>
+        <td mat-cell *matCellDef="let element">{{element.country}}</td>
+    </ng-container>
+    <ng-container matColumnDef="firstBillingAddress">
+        <th mat-header-cell *matHeaderCellDef>First Name</th>
+        <td mat-cell *matCellDef="let element">{{element.firstBillingAddress}}</td>
+    </ng-container>
+    <ng-container matColumnDef="secondBillingAddress">
+        <th mat-header-cell *matHeaderCellDef>First Name</th>
+        <td mat-cell *matCellDef="let element">{{element.secondBillingAddress}}</td>
+    </ng-container>
+    <ng-container matColumnDef="billingCity">
+        <th mat-header-cell *matHeaderCellDef>First Name</th>
+        <td mat-cell *matCellDef="let element">{{element.billingCity}}</td>
+    </ng-container>
+    <ng-container matColumnDef="billingState">
+        <th mat-header-cell *matHeaderCellDef>First Name</th>
+        <td mat-cell *matCellDef="let element">{{element.billingState}}</td>
+    </ng-container>
+    <ng-container matColumnDef="billingZipCode">
+        <th mat-header-cell *matHeaderCellDef>First Name</th>
+        <td mat-cell *matCellDef="let element">{{element.billingZipCode}}</td>
+    </ng-container>
+    <ng-container matColumnDef="firstShippingAddress">
+        <th mat-header-cell *matHeaderCellDef>First Name</th>
+        <td mat-cell *matCellDef="let element">{{element.firstShippingAddress}}</td>
+    </ng-container>
+    <ng-container matColumnDef="secondShippingAddress">
+        <th mat-header-cell *matHeaderCellDef>First Name</th>
+        <td mat-cell *matCellDef="let element">{{element.secondShippingAddress}}</td>
+    </ng-container>
+    <ng-container matColumnDef="shippingCity">
+        <th mat-header-cell *matHeaderCellDef>First Name</th>
+        <td mat-cell *matCellDef="let element">{{element.shippingCity}}</td>
+    </ng-container>
+    <ng-container matColumnDef="shippingState">
+        <th mat-header-cell *matHeaderCellDef>First Name</th>
+        <td mat-cell *matCellDef="let element">{{element.shippingState}}</td>
+    </ng-container>
+    <ng-container matColumnDef="shippingZipCode">
+        <th mat-header-cell *matHeaderCellDef>First Name</th>
+        <td mat-cell *matCellDef="let element">{{element.shippingZipCode}}</td>
+    </ng-container>
+    <ng-container matColumnDef="fuelCutOff">
+        <th mat-header-cell *matHeaderCellDef>First Name</th>
+        <td mat-cell *matCellDef="let element">{{element.fuelCutOff}}</td>
+    </ng-container>
+    <ng-container matColumnDef="identifyDrivers">
+        <th mat-header-cell *matHeaderCellDef>First Name</th>
+        <td mat-cell *matCellDef="let element">{{element.identifyDrivers}}</td>
+    </ng-container>
+    <ng-container matColumnDef="trackers">
+        <th mat-header-cell *matHeaderCellDef>First Name</th>
+        <td mat-cell *matCellDef="let element">{{element.trackers}}</td>
+    </ng-container>
+    <ng-container matColumnDef="numberTrackers">
+        <th mat-header-cell *matHeaderCellDef>First Name</th>
+        <td mat-cell *matCellDef="let element">{{element.numberTrackers}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedCols"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedCols;">{{row}}</tr>
+</table>
