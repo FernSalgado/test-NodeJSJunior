@@ -10,10 +10,20 @@ export class FormService{
     private url = `${environment.api}form`;
 
     public get = async(): Promise<Form[]> => {
-        return this.http.get<Form[]>(this.url).toPromise();
+        return this.http.get<Form[]>(this.url).toPromise()
+        .then(result => {return result})
+        .catch(error => {return error});
     }
 
-    public post(form:Form){
-        return this.http.post<Form>(this.url, form);
+    public post = async(form:Form): Promise<any> => {
+        return this.http.post<Form>(this.url, form).toPromise()
+        .then(result => {return result})
+        .catch(error => {return error});
     } 
+
+    public delete(id) : Promise<any>{
+        return this.http.delete(`${this.url}/${id}`).toPromise()
+        .then(result => {return result})
+        .catch(error => {return error});
+    }
 }

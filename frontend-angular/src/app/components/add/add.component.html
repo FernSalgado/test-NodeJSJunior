@@ -1,1 +1,135 @@
-<p>add works!</p>
+<div class="header">
+    <img class="logo" src="../../../assets/contelelogo.png">
+</div>
+<div class="container">
+    <form class="mat-elevation-z8" [formGroup]="formAdd" (submit)="submitForm()">
+        <div class="formGroup">
+            <div class="fieldGroup">
+                <div class="contactInput">
+                    <label class="title">Contact Information:</label>
+                    <mat-form-field appearance="outline">
+                        <mat-label>First Name</mat-label>
+                        <input type="text" name="firstName" formControlName="firstName" matInput>
+                        <mat-error *ngIf="firstName.hasError('required') || firstName.hasError('minlength') || firstName.hasError('pattern')">{{firstName.value == '' ? 'First name is required' : 'First name must be longer than 2 characters and can have only letters.'}}</mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Last Name</mat-label>
+                        <input type="text" name="lastName" formControlName="lastName" matInput>
+                        <mat-error *ngIf="lastName.hasError('required') || lastName.hasError('minlength') || lastName.hasError('pattern')">{{lastName.value == '' ? 'Last name is required' : 'Last name must be longer than 2 characters and can have only letters'}}</mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Email Address</mat-label>
+                        <input type="email"name="email" formControlName="email" matInput>
+                        <mat-error *ngIf="email.hasError('required') || email.hasError('email')">{{email.value == ''? 'Email is required' : 'Invalid Email'}}</mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Phone Number</mat-label>
+                        <input type="text" name="phone" formControlName="phone" matInput>
+                        <mat-error *ngIf="phone.hasError('required') || phone.hasError('minlength') || phone.hasError('pattern')">{{phone.value == ''? 'Phone is required' : 'Invalid phone number'}}</mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Language</mat-label>
+                        <input type="text" name="language" formControlName="language" matInput>
+                        <mat-error *ngIf="language.hasError('required') || language.hasError('minlength') || language.hasError('pattern')">{{language.value == ''? 'Language is required' : 'Language must be longer than 2 characters and can have only letters'}}</mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Country</mat-label>
+                        <input type="text" name="country" formControlName="country" matInput>
+                        <mat-error *ngIf="country.hasError('required') || country.hasError('minlength') || country.hasError('pattern')">{{country.value == ''? 'Country is required' : 'Country must be longer than 2 characters and can have only letters. '}}</mat-error>
+                    </mat-form-field>
+                </div>
+                
+
+            </div>
+            <div class="fieldGroup">
+                <div class="addressInput">
+                    <label class="title">Billing Address:</label>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Address Line 1</mat-label>
+                        <input type="text" name="firstBillingAddress" formControlName="firstBillingAddress" matInput>
+                        <mat-error *ngIf="firstBillingAddress.hasError('required') || firstBillingAddress.hasError('minlength')">{{firstBillingAddress.value == ''? 'Address is required' : 'Address must be longer than 2 characters '}}</mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Address Line 2</mat-label>
+                        <input type="text" name="secondBillingAddress" formControlName="secondBillingAddress" matInput>
+                        <mat-error *ngIf="secondBillingAddress.hasError('required') || secondBillingAddress.hasError('minlength')">{{secondBillingAddress.value == ''? 'Address is required' : 'Address must be longer than 2 characters '}}</mat-error>
+                    </mat-form-field>
+                    <div class="threeInput">
+                        <mat-form-field appearance="outline">
+                            <mat-label>City</mat-label>
+                            <input type="text" name="billingCity" formControlName="billingCity" matInput>
+                            <mat-error *ngIf="billingCity.hasError('required') || billingCity.hasError('minlength')">{{billingCity.value == ''? 'City is required' : 'City must be longer than 2 characters '}}</mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>State</mat-label>
+                            <input type="text" name="billingState" formControlName="billingState" matInput>
+                            <mat-error *ngIf="billingState.hasError('required') || billingState.hasError('minlength')">{{billingState.value == ''? 'State is required' : 'State must be longer than 2 characters '}}</mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Zip Code</mat-label>
+                            <input type="text" name="billingZipCode" formControlName="billingZipCode" matInput>
+                            <mat-error *ngIf="billingZipCode.hasError('required') || billingZipCode.hasError('minlength') || billingZipCode.hasError('pattern')">{{billingZipCode.value == ''? 'Zip Code is required' : 'Invalid Zip Code'}}</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <mat-checkbox [(ngModel)]="checked" [ngModelOptions]="{standalone: true}" color="primary" (change)="billingIsShipping()">Use shipping address same as billing address.</mat-checkbox>
+                </div>
+            </div>
+        </div>
+        <div class="formGroup">
+            <div class="fieldGroup">
+                <div class="addressInput">
+                    <label class="title">Shipping Address:</label>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Address Line 1</mat-label>
+                        <input type="text" name="firstShippingAddress" formControlName="firstShippingAddress" matInput>
+                        <mat-error *ngIf="firstShippingAddress.hasError('required') || firstShippingAddress.hasError('minlength')">{{firstShippingAddress.value == ''? 'Address is required' : 'Address must be longer than 2 characters '}}</mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Address Line 2</mat-label>
+                        <input type="text" name="secondShippingAddress" formControlName="secondShippingAddress" matInput>
+                        <mat-error *ngIf="secondShippingAddress.hasError('required') || secondShippingAddress.hasError('minlength')">{{secondShippingAddress.value == ''? 'Address is required' : 'Address must be longer than 2 characters '}}</mat-error>
+                    </mat-form-field>
+                    <div class="threeInput">
+                        <mat-form-field appearance="outline">
+                            <mat-label>City</mat-label>
+                            <input type="text" name="shippingCity" formControlName="shippingCity" matInput>
+                            <mat-error *ngIf="shippingCity.hasError('required') || shippingCity.hasError('minlength')">{{shippingCity.value == ''? 'City is required' : 'City must be longer than 2 characters '}}</mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>State</mat-label>
+                            <input type="text" name="shippingState" formControlName="shippingState" matInput>
+                            <mat-error *ngIf="shippingState.hasError('required') || shippingState.hasError('minlength')">{{shippingState.value == ''? 'State is required' : 'State must be longer than 2 characters '}}</mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Zip Code</mat-label>
+                            <input type="text" name="shippingZipCode" formControlName="shippingZipCode" matInput>
+                            <mat-error *ngIf="shippingZipCode.hasError('required') || shippingZipCode.hasError('minlength') || shippingZipCode.hasError('pattern')">{{shippingZipCode.value == ''? 'Zip Code is required' : 'Invalid Zip Code'}}</mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+            <div class="fieldGroup boxes">
+                <label class="title">Check the boxes bellow:</label>
+                <div class="checkBox">
+                    <mat-checkbox formControlName="fuelCutOff" color="primary" >Does any vehicle need to be equiped with a fuel cut off device?</mat-checkbox>
+                </div>
+
+                <div class="checkBox">
+                    <mat-checkbox formControlName="trackers" color="primary" >Will any trackers be installed on a bike, truck or machinery?</mat-checkbox>
+                </div>
+
+                <div class="checkBox">
+                    <mat-checkbox formControlName="identifyDrivers" color="primary" >Will you need to identify the fleet drivers?</mat-checkbox>
+                </div>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>How many trackers would you like to purchase?</mat-label>
+                    <input type="number" name="numberTrackers" formControlName="numberTrackers" matInput>
+                </mat-form-field>
+            </div>
+        </div>
+        
+        <button [disabled]="done" mat-button  type="submit" >Order Now</button>
+        <a mat-button class="back" (click)="navigate()"  >Back</a>
+    </form>
+</div>
